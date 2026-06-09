@@ -39,7 +39,7 @@
       <input
         id="keyupEsc"
         type="text"
-        @keyup.escape="keyupEsc"
+        @keyup.esc="keyupEsc"
         name="keyupEsc"
         placeholder="Tapez puis appuyez sur Échap"
         class="input input-bordered input-accent w-full"
