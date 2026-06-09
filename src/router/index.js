@@ -8,6 +8,7 @@ const router = createRouter({
         { path: '/methods', name: 'Methods', component: () => import('../views/exercices/Methods.vue') },
         { path: '/binds', name: 'Binds', component: () => import('../views/exercices/User.vue') },
         { path: '/count', name: 'Count', component: () => import('../views/exercices/Count.vue') },
+        { path: '/input', name: 'Input', component: () => import('../views/exercices/Input.vue') },
     ],
 });
 

@@ -42,6 +42,7 @@
               <li><RouterLink to="/methods">1. Les Methods</RouterLink></li>
               <li><RouterLink to="/binds">2. V-Bind</RouterLink></li>
               <li><RouterLink to="/count">3. Count</RouterLink></li>
+              <li><RouterLink to="/input">4. Input</RouterLink></li>
             </ul>
           </details>
         </li>
