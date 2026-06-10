@@ -44,6 +44,7 @@
               <li><RouterLink to="/count">3. Count</RouterLink></li>
               <li><RouterLink to="/input">4. Input</RouterLink></li>
               <li><RouterLink to="/style">5. Style</RouterLink></li>
+              <li><RouterLink to="/poke">6. Fetch</RouterLink></li>
             </ul>
           </details>
         </li>
