@@ -5,33 +5,33 @@
       <div class="card bg-base-200 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">🌤️ Météo du jour Toulouse</h2>
-  
           <div class="stats shadow">
             <div class="stat">
               <div class="stat-title">Température actuelle</div>
               <div class="stat-value text-primary">
-                {{ weather.current_condition.tmp }}°C
+                {{ weather?.current_condition.tmp }}°C
               </div>
             </div>
   
             <div class="stat">
               <div class="stat-title">Maximum</div>
               <div class="stat-value text-error">
-                {{ weather.fcst_day_0.tmax }}°C
+                {{ weather?.fcst_day_0.tmax }}°C
               </div>
             </div>
   
             <div class="stat">
               <div class="stat-title">Minimum</div>
               <div class="stat-value text-info">
-                {{ weather.fcst_day_0.tmin }}°C
+                {{ weather?.fcst_day_0.tmin }}°C
               </div>
             </div>
           </div>
   
           <div class="mt-4">
             <div class="badge badge-primary badge-lg">
-              {{ weather.current_condition.condition }}
+              {{ weather?.current_condition.condition }}
+
             </div>
           </div>
         </div>
@@ -85,6 +85,7 @@ async function getWeather(){
             throw new Error(`Response status: ${response.status}`)
         }
         const result = await response.json()
+        console.log(result)
         weather.value = result
         console.log(weather)
     } catch (error) {
