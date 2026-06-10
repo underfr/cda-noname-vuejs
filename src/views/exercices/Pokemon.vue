@@ -9,28 +9,28 @@
             <div class="stat">
               <div class="stat-title">Température actuelle</div>
               <div class="stat-value text-primary">
-                {{ weather?.current_condition.tmp }}°C
+                {{ weather.current_condition.tmp }}°C
               </div>
             </div>
   
             <div class="stat">
               <div class="stat-title">Maximum</div>
               <div class="stat-value text-error">
-                {{ weather?.fcst_day_0.tmax }}°C
+                {{ weather.fcst_day_0.tmax }}°C
               </div>
             </div>
   
             <div class="stat">
               <div class="stat-title">Minimum</div>
               <div class="stat-value text-info">
-                {{ weather?.fcst_day_0.tmin }}°C
+                {{ weather.fcst_day_0.tmin }}°C
               </div>
             </div>
           </div>
   
           <div class="mt-4">
             <div class="badge badge-primary badge-lg">
-              {{ weather?.current_condition.condition }}
+              {{ weather.current_condition.condition }}
 
             </div>
           </div>
@@ -61,7 +61,16 @@
 import { onMounted, ref } from 'vue';
 
 const pokemons = ref([])
-const weather = ref()
+const weather = ref({
+  current_condition: {
+    tmp: 0,
+    condition: ''
+  },
+  fcst_day_0: {
+    tmax: 0,
+    tmin: 0
+  }
+})
 
 async function getPoke() {
     const url = "https://pokeapi.co/api/v2/pokemon"
