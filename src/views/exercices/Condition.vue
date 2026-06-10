@@ -56,10 +56,10 @@
               class="flex flex-col gap-2 w-full max-h-60 overflow-y-auto px-1 justify-center items-center"
             >
               <li
-                v-for="item in movies"
+                v-for="(item,index) in movies"
                 :key="item"
                 class="flex items-center justify-between badge badge-secondary hover:bg-base-300/80 p-3 rounded-xl transition-all cursor-pointer group"
-                @click="movies.pop(item)"
+                @click="movies.splice(index, 1)"
               >
                 <span class="font-medium text-base-content">{{ item }}</span>
               </li>
