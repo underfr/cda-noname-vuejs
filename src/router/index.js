@@ -9,6 +9,8 @@ const router = createRouter({
         { path: '/binds', name: 'Binds', component: () => import('../views/exercices/User.vue') },
         { path: '/count', name: 'Count', component: () => import('../views/exercices/Count.vue') },
         { path: '/input', name: 'Input', component: () => import('../views/exercices/Input.vue') },
+        { path: '/countcrash', name: 'Input', component: () => import('../views/exercices/CountCrash.vue') },
+        { path: '/style', name: 'Input', component: () => import('../views/exercices/StyleDynamic.vue') },
     ],
 });
 
