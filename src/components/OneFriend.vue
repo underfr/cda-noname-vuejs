@@ -68,11 +68,20 @@
 
 <script setup>
 defineProps({
-  id: String,
-  name: String,
+  id: {
+    String,
+    required: true,
+  },
+  name: {
+    String,
+    required: true,
+  },
   phone: String,
   email: String,
-  premium: Boolean,
+  premium: {
+    Boolean,
+    default: false,
+  },
 });
 </script>
 
