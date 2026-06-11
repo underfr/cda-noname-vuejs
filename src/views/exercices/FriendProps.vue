@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-col items-center gap-6 p-4">
     <h1 class="text-primary text-2xl">Exo Props</h1>
+    <div class="w-full max-w-sm">
+      <NewFriend
+      @addFriend="addFriend"
+      />
+    </div>
     <div v-for="friend in lesAmis" :key="friend.id" class="w-full max-w-sm">
       <OneFriend 
       v-bind="friend"
@@ -13,6 +18,7 @@
 
 <script setup>
 import OneFriend from "../../components/OneFriend.vue";
+import NewFriend from "../../components/NewFriend.vue";
 import { ref } from "vue";
 
 const lesAmis = ref([
@@ -76,6 +82,16 @@ function togglePremiumStatus(id){
 
 function removeFriend(id){
   lesAmis.value = lesAmis.value.filter(friend=>friend.id !== id)
+}
+
+function addFriend(data){
+  const newFriend = {
+    id: Math.random().toString(36).substring(2,9),
+    name: data.name,
+    phone: data.phone,
+    email: data.email
+  }
+  lesAmis.value.push(newFriend)
 }
 </script>
 
