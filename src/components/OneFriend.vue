@@ -61,11 +61,13 @@
           </svg>
           <span class="link link-hover text-secondary" >{{ email }}</span>
         </div>
-        <div class="flex gap-3">
-            <button class="btn btn-primary" @click="handlePremiumProps()">Update Premium</button>
-            <button class="btn btn-primary" @click="showDetail()">Afficher Details</button>
-            <button class="btn btn-primary" @click="deleteFriend()">Supprimer</button>
-        </div>
+        <div class="flex gap-2 mt-4 w-full">
+  <button class="btn btn-success flex-1" @click="handlePremiumProps()">Update Premium</button>
+  
+  <button class="btn btn-primary flex-1" @click="showDetail()">Afficher Details</button>
+  
+  <button class="btn btn-error flex-1" @click="deleteFriend()">Supprimer</button>
+</div>
       </div>
     </div>
   </div>
