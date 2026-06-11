@@ -59,26 +59,32 @@
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
-          <span class="link link-hover text-secondary" >{{ email }}</span>
+          <span class="link link-hover text-secondary">{{ email }}</span>
         </div>
         <div class="flex gap-2 mt-4 w-full">
-  <button class="btn btn-success flex-1" @click="handlePremiumProps()">Update Premium</button>
-  
-  <button class="btn btn-primary flex-1" @click="showDetail()">Afficher Details</button>
-  
-  <button class="btn btn-error flex-1" @click="deleteFriend()">Supprimer</button>
-</div>
+          <button class="btn btn-success flex-1" @click="handlePremiumProps()">
+            Update Premium
+          </button>
+
+          <button class="btn btn-primary flex-1" @click="showDetail()">
+            Afficher Details
+          </button>
+
+          <button class="btn btn-error flex-1" @click="deleteFriend()">
+            Supprimer
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const detail = ref(false)
+const detail = ref(false);
 
-const emit = defineEmits(['eventPremiumUpdate', 'deleteFriend'])
+const emit = defineEmits(["eventPremiumUpdate", "deleteFriend"]);
 
 const props = defineProps({
   id: {
@@ -97,16 +103,16 @@ const props = defineProps({
   },
 });
 
-function showDetail(){
-    detail.value = !detail.value
+function showDetail() {
+  detail.value = !detail.value;
 }
 
-function deleteFriend(){
-    emit('deleteFriend', props.id)
+function deleteFriend() {
+  emit("deleteFriend", props.id);
 }
 
-function handlePremiumProps(){
-    emit('eventPremiumUpdate', props.id)
+function handlePremiumProps() {
+  emit("eventPremiumUpdate", props.id);
 }
 </script>
 
