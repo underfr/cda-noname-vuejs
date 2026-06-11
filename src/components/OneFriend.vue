@@ -18,7 +18,7 @@
       <div class="divider my-0 opacity-50"></div>
 
       <div class="space-y-2 text-sm text-base-content/80">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2" v-if="detail">
           <span
             class="text-xs font-mono bg-base-200 px-2 py-0.5 rounded text-base-content/60"
           >
@@ -26,7 +26,7 @@
           </span>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2" v-if="detail">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4 text-primary"
@@ -44,7 +44,7 @@
           <span>{{ phone }}</span>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2" v-if="detail">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4 text-primary"
@@ -59,7 +59,12 @@
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
-          <span class="link link-hover text-secondary">{{ email }}</span>
+          <span class="link link-hover text-secondary" >{{ email }}</span>
+        </div>
+        <div class="flex gap-3">
+            <button class="btn btn-primary" @click="handlePremiumProps()">Update Premium</button>
+            <button class="btn btn-primary" @click="showDetail()">Afficher Details</button>
+            <button class="btn btn-primary" @click="deleteFriend()">Supprimer</button>
         </div>
       </div>
     </div>
@@ -67,22 +72,40 @@
 </template>
 
 <script setup>
-defineProps({
+import { ref } from 'vue';
+
+const detail = ref(false)
+
+const emit = defineEmits(['eventPremiumUpdate', 'deleteFriend'])
+
+const props = defineProps({
   id: {
-    String,
+    type: String,
     required: true,
   },
   name: {
-    String,
+    type: String,
     required: true,
   },
   phone: String,
   email: String,
   premium: {
-    Boolean,
+    type: Boolean,
     default: false,
   },
 });
+
+function showDetail(){
+    detail.value = !detail.value
+}
+
+function deleteFriend(){
+    emit('deleteFriend', props.id)
+}
+
+function handlePremiumProps(){
+    emit('eventPremiumUpdate', props.id)
+}
 </script>
 
 <style lang="css" scoped></style>

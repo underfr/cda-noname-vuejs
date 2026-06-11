@@ -2,7 +2,11 @@
   <div class="flex flex-col items-center gap-6 p-4">
     <h1 class="text-primary text-2xl">Exo Props</h1>
     <div v-for="friend in lesAmis" :key="friend.id" class="w-full max-w-sm">
-      <OneFriend v-bind="friend" />
+      <OneFriend 
+      v-bind="friend"
+      @eventPremiumUpdate="togglePremiumStatus"
+      @deleteFriend="removeFriend"
+      />
     </div>
   </div>
 </template>
@@ -62,6 +66,17 @@ const lesAmis = ref([
     premium: true,
   },
 ]);
+
+function togglePremiumStatus(id){
+  const friend = lesAmis.value.find(f => f.id === id)
+  if (friend){
+    friend.premium = !friend.premium
+  }
+}
+
+function removeFriend(id){
+  lesAmis.value = lesAmis.value.filter(friend=>friend.id !== id)
+}
 </script>
 
 <style lang="css" scoped></style>
