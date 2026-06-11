@@ -12,7 +12,8 @@ const router = createRouter({
         { path: '/countcrash', name: 'CountCrash', component: () => import('../views/exercices/CountCrash.vue') },
         { path: '/style', name: 'Style', component: () => import('../views/exercices/StyleDynamic.vue') },
         { path: '/movies', name: 'Movies', component: () => import('../views/exercices/Condition.vue') },
-        { path: '/poke', name: 'Movies', component: () => import('../views/exercices/Pokemon.vue') },
+        { path: '/poke', name: 'Poke', component: () => import('../views/exercices/Pokemon.vue') },
+        { path: '/friend', name: 'Friends', component: () => import('../views/exercices/FriendProps.vue') },
     ],
 });
 
